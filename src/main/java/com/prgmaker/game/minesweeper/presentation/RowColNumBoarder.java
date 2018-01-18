@@ -13,8 +13,8 @@ public class RowColNumBoarder extends GridBoarder {
         leftPartCellWidth = nRow - 1 == 0 ? 1 : (int) (Math.log(nRow - 1) / Math.log(10)) + 1;
         upperPartCellWidth = nCol - 1 == 0 ? 1 : (int) (Math.log(nCol - 1) / Math.log(10)) + 1;
         leftPartGap = 1;
-
         boarder = Rect.newInstance(leftPartCellWidth + leftPartGap, 1, 0, 0);
+        measureCellWidth(upperPartCellWidth);
     }
 
     @Override
@@ -43,11 +43,12 @@ public class RowColNumBoarder extends GridBoarder {
                 }
             }
         } else if(row < offset.top || row >= offset.top + getRowCount()) {
-            sb.append(repChars(' ', boarder.left)).append(display.getRowText(row-1));
+            sb.append(repChars(' ', boarder.left)).append(display.getRowText(row-boarder.top));
         } else {
             sb.append(String.format("%0" + leftPartCellWidth + "d", row - offset.top))
-                    .append(repChars(' ', leftPartGap)).append(display.getRowText(row-1));
+                    .append(repChars(' ', leftPartGap)).append(display.getRowText(row-boarder.top));
         }
+        sb.append(repChars(' ', getWidth()-sb.length()));
         return sb.toString();
     }
 }

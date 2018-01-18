@@ -41,7 +41,7 @@ public class MineMapDisplay extends GridDisplay {
 
     @Override
     protected int getHeight() {
-        return map.getColCount();
+        return map.getRowCount();
     }
 
     @Override

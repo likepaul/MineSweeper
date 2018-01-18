@@ -26,8 +26,7 @@ public class BoxBoarder extends GridBoarder {
         if(row == 0 || row == getHeight()-1) {
             sb.append(repChars('-', getWidth()));
         } else {
-            sb.append('|').append(display.getRowText(row-1));
-            sb.append(repChars(' ', getWidth()-sb.length()-1)).append('|');
+            sb.append('|').append(display.getRowText(row-1)).append('|');
         }
         return sb.toString();
     }
