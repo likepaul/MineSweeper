@@ -42,13 +42,15 @@ public class RowColNumBoarder extends GridBoarder {
                     sb.append(repChars(' ', cellGap));
                 }
             }
+            // you have the responsibility of right padding, if this row is within your boarder
+            sb.append(repChars(' ', getWidth()-sb.length()));
         } else if(row < offset.top || row >= offset.top + getRowCount()) {
             sb.append(repChars(' ', boarder.left)).append(display.getRowText(row-boarder.top));
         } else {
             sb.append(String.format("%0" + leftPartCellWidth + "d", row - offset.top))
                     .append(repChars(' ', leftPartGap)).append(display.getRowText(row-boarder.top));
         }
-        sb.append(repChars(' ', getWidth()-sb.length()));
+
         return sb.toString();
     }
 }
