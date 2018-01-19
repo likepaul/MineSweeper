@@ -10,3 +10,6 @@ This is my first console game.
 <li>Observer pattern for updating ui automatically whenever data changes</li>
 <li>Template method pattern</li>
 <li>Strategy pattern for replacing with other sampling algorithm</li>
+
+# Screenshot
+![ex_screenshot](./screenshot/screenshot.png)
