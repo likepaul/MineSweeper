@@ -38,7 +38,7 @@ public abstract class GridDisplay extends Observable implements Observer {
         }
     }
 
-    public void show() {
+    public final void show() {
         int nRow = getHeight();
         for (int r = 0; r < nRow; r++) {
             System.out.println(getRowText(r));
@@ -46,6 +46,7 @@ public abstract class GridDisplay extends Observable implements Observer {
     }
 
     protected String repChars(char c, int rep) {
+        if(rep < 0) throw new IllegalArgumentException(""+rep);
         char[] chars = new char[rep];
         int pi = 0;
         while (rep-- > 0) {
